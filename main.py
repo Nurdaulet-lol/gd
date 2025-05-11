@@ -1,44 +1,33 @@
-class Human:
-    def __init__(self,name,age,iin):
-        self.name = name
-        self.age = age
-        self.iin = iin 
+class Vehicle:
+    def __init__(self, brand, year):
+        self.brand = brand
+        self.year = year
 
-    def introduce(self):
-        print(f"ПРИВЕТ! Меня зовут {self.name},мне{self.age}Лет")
+    def info(self):
+        print(f"Это транспортное средство марки {self.brand}, {self.year} года выпуска")
 
-class Student(Human):
-    def __init__(self,name,age,iin,group,gpa):
-        super().__init__(name,age,iin)
-        self.group = group
-        self.gpa = gpa
+class Car(Vehicle):
+    def __init__(self, brand, year, model, doors):
+        super().__init__(brand, year)
+        self.model = model
+        self.doors = doors
 
-    def introduce(self):
-        super().introduce()
-        print(f"Я учусь в группе {self.group}и мой gpa- {self.gpa}")
+    def info(self):
+        super().info()
+        print(f"Это автомобиль модели {self.model} с {self.doors} дверями")
 
-class Teach(Human):
-    def __init__(self, name, age, iin,subject):
-        super().__init__(name, age, iin)
-        self.subject= subject
-        self.grouplist= []
+class Motorcycle(Vehicle):
+    def __init__(self, brand, year, engine_type):
+        super().__init__(brand, year)
+        self.engine_type = engine_type
 
-    def addgroup(self,group):
-        grouplist.append(group)
-        print(f"Группа добавлена в список")
-        
-    def introduce(self):
-         super().introduce()
-         print(f"Я веду предмет {self.subject},я веду группы:")
-         for items in grouplist:
-             print(items)
+    def info(self):
+        super().info()
+        print(f"Это мотоцикл с типом двигателя: {self.engine_type}")
 
-Bob = Student("Bob",21,123456789,"1241",4.0)
-Bob.introduce()
 
-Kate=Teach("Kate",40,432141414,"Math")
-Kate.addgroup("4321")
-Kate.addgroup("4121")
-Kate.addgroup("4421")
-Kate.addgroup("4621")
-Kate.introduce()
+bmw = Car("BMW", 2020, "X5", 4)
+bmw.info()
+
+yamaha = Motorcycle("Yamaha", 2018, "двухтактный")
+yamaha.info()
